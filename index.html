@@ -3,75 +3,62 @@
 <head>
   <meta charset="UTF-8" />
 
-  <!-- ✅ THIS IS THE CRITICAL TAG — without it mobile browsers zoom out to desktop width -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-  <title>GT Mapper - GeoTreks Kenya | Field Data Collection &amp; GIS Platform</title>
+  <title>GT Mapper | Field Data Collection & GIS Platform Kenya</title>
 
-  <meta name="description" content="GT Mapper by GeoTreks Kenya is a powerful field data collection and GIS platform. Capture, manage, and analyze geospatial data in real-time with smart forms, offline capability, and live dashboards across Kenya and East Africa." />
-  <meta name="keywords" content="GT Mapper, GeoTreks Kenya, field data collection app, GIS platform Kenya, geospatial data collection, offline data capture, mobile survey app, mapping platform, real-time GIS dashboard" />
+  <meta name="description" content="GT Mapper by GeoTreks Kenya is a powerful GIS and field data collection platform. Capture, manage, and analyze geospatial data in real-time across Kenya and Africa." />
+  <meta name="keywords" content="GT Mapper, GIS platform Kenya, field data collection app, geospatial data Kenya, mapping software Africa, survey app Kenya, GIS dashboard" />
   <meta name="author" content="GeoTreks Kenya" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://geotrekskenya.vercel.app/" />
+
+  <!-- ✅ FIXED CANONICAL -->
+  <link rel="canonical" href="https://gtmapper.geotreks.co.ke/" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://geotrekskenya.vercel.app/" />
-  <meta property="og:title" content="GT Mapper - GeoTreks Kenya | Field Data Collection &amp; GIS Platform" />
-  <meta property="og:description" content="Capture field data, manage teams, and visualize insights in real-time with GT Mapper by GeoTreks Kenya." />
-  <meta property="og:image" content="https://geotrekskenya.vercel.app/images/logo.png" />
+  <meta property="og:url" content="https://gtmapper.geotreks.co.ke/" />
+  <meta property="og:title" content="GT Mapper | Field Data Collection & GIS Platform" />
+  <meta property="og:description" content="Capture field data, manage teams, and visualize geospatial insights in real-time." />
+  <meta property="og:image" content="https://gtmapper.geotreks.co.ke/images/logo.png" />
   <meta property="og:site_name" content="GeoTreks Kenya" />
   <meta property="og:locale" content="en_KE" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@GeoTreksKenya" />
   <meta name="twitter:title" content="GT Mapper - GeoTreks Kenya" />
-  <meta name="twitter:description" content="Smart field data collection and GIS platform built for modern teams." />
-  <meta name="twitter:image" content="https://geotrekskenya.vercel.app/images/logo.png" />
+  <meta name="twitter:description" content="Smart GIS & field data collection platform." />
+  <meta name="twitter:image" content="https://gtmapper.geotreks.co.ke/images/logo.png" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/favicon-16.png" sizes="16x16" />
-  <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32" />
-  <link rel="icon" type="image/png" href="/favicon-64.png" sizes="64x64" />
+  <link rel="icon" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
 
-  <!-- PWA / Apple -->
+  <!-- PWA -->
+  <meta name="theme-color" content="#0d9c5e" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="GT Mapper" />
-  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
-  <!-- <link rel="manifest" href="/manifest.webmanifest" /> -->
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-
-  <!-- Structured Data -->
+  <!-- Structured Data (IMPROVED) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "name": "GeoTreks Kenya",
-        "url": "https://geotrekskenya.vercel.app/",
-        "logo": "https://geotrekskenya.vercel.app/images/logo.png"
-      },
-      {
-        "@type": "SoftwareApplication",
-        "name": "GT Mapper",
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "Web, Android, iOS",
-        "description": "A field data collection and GIS platform for capturing, managing, and analyzing geospatial data in real-time.",
-        "url": "https://geotrekskenya.vercel.app/",
-        "creator": { "@type": "Organization", "name": "GeoTreks Kenya" }
-      }
-    ]
+    "@type": "SoftwareApplication",
+    "name": "GT Mapper",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web, Android, iOS",
+    "url": "https://gtmapper.geotreks.co.ke",
+    "description": "A GIS and field data collection platform for real-time geospatial data capture and analysis.",
+    "creator": {
+      "@type": "Organization",
+      "name": "GeoTreks Kenya",
+      "url": "https://geotreks.co.ke"
+    }
   }
   </script>
 </head>

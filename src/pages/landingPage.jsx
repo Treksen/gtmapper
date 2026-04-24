@@ -762,7 +762,7 @@ function LiveMap() {
 export default function LandingPage() {
   const stuck  = useStuck()
   const [menu, setMenu] = useState(false)
-  const navIds = ['home','about','services','process','roles','contact']
+  const navIds = ['home','about','services','process','contact']
   const active = useActiveSection(navIds)
   useReveal()
 
@@ -777,7 +777,6 @@ export default function LandingPage() {
     { l: 'About',    h: '#about' },
     { l: 'Services', h: '#services' },
     { l: 'Process',  h: '#process' },
-    { l: 'Roles',    h: '#roles' },
     { l: 'Contact',  h: '#contact' },
   ]
 
@@ -797,11 +796,11 @@ export default function LandingPage() {
     { n:'04', title:'Analyse & Act',        body:'Supervisors review live maps, dashboards, and audit trails to make decisions.' },
   ]
 
-  const roles = [
-    { cls:'admin', emoji:'⚙️', title:'Admin', body:'Full system oversight — manage organizations, approve users, and monitor everything from one panel.', features:['Global map view','Organization management','User approvals','Audit logs','Presence monitoring'] },
-    { cls:'sup',   emoji:'👁️', title:'Supervisor', body:'Team lead tools — build forms, track officers live, review submissions, and generate reports.', features:['Live team map','Form builder','Officer management','Reports & analytics','Notifications'] },
-    { cls:'off',   emoji:'📍', title:'Field Officer', body:'Mobile-optimized collection — check in, submit forms, and track your own visits and history.', features:['GPS check-in','Offline forms','My submissions','Visit history','Announcements'] },
-  ]
+  // const roles = [
+  //   { cls:'admin', emoji:'⚙️', title:'Admin', body:'Full system oversight — manage organizations, approve users, and monitor everything from one panel.', features:['Global map view','Organization management','User approvals','Audit logs','Presence monitoring'] },
+  //   { cls:'sup',   emoji:'👁️', title:'Supervisor', body:'Team lead tools — build forms, track officers live, review submissions, and generate reports.', features:['Live team map','Form builder','Officer management','Reports & analytics','Notifications'] },
+  //   { cls:'off',   emoji:'📍', title:'Field Officer', body:'Mobile-optimized collection — check in, submit forms, and track your own visits and history.', features:['GPS check-in','Offline forms','My submissions','Visit history','Announcements'] },
+  // ]
 
   const barData = [
     { l:'Jan', v:42 }, { l:'Feb', v:61 }, { l:'Mar', v:38 }, { l:'Apr', v:74 },
@@ -825,13 +824,24 @@ export default function LandingPage() {
   return (
     <>
       {/* MOBILE SIDEBAR OVERLAY */}
-      <div className={`drawer-overlay ${menu ? 'open' : ''}`} onClick={() => setMenu(false)} />
+      <div
+        className={`drawer-overlay ${menu ? "open" : ""}`}
+        onClick={() => setMenu(false)}
+      />
 
       {/* MOBILE SIDEBAR */}
-      <div className={`drawer ${menu ? 'open' : ''}`} role="dialog" aria-label="Navigation menu">
+      <div
+        className={`drawer ${menu ? "open" : ""}`}
+        role="dialog"
+        aria-label="Navigation menu"
+      >
         {/* Header */}
         <div className="drawer-header">
-          <a href="#home" className="drawer-logo" onClick={() => setMenu(false)}>
+          <a
+            href="#home"
+            className="drawer-logo"
+            onClick={() => setMenu(false)}
+          >
             {/* <div className="drawer-logo-mark">
               <img src="/images/logo.jpeg" alt="GT Mapper" onError={e => e.target.style.display='none'} style={{ width: 34, height: 34, objectFit: 'contain' }} />
             </div> */}
@@ -840,15 +850,24 @@ export default function LandingPage() {
               <div className="drawer-logo-sub">GeoTreks Kenya</div>
             </div>
           </a>
-          <button className="drawer-close" onClick={() => setMenu(false)} aria-label="Close menu">✕</button>
+          <button
+            className="drawer-close"
+            onClick={() => setMenu(false)}
+            aria-label="Close menu"
+          >
+            ✕
+          </button>
         </div>
 
         {/* Nav links */}
         <nav className="drawer-nav">
-          {navLinks.map(nl => (
-            <a key={nl.l} href={nl.h}
-               className={active === nl.h.slice(1) ? 'on' : ''}
-               onClick={() => setMenu(false)}>
+          {navLinks.map((nl) => (
+            <a
+              key={nl.l}
+              href={nl.h}
+              className={active === nl.h.slice(1) ? "on" : ""}
+              onClick={() => setMenu(false)}
+            >
               {nl.l}
               <span className="arrow">→</span>
             </a>
@@ -862,17 +881,19 @@ export default function LandingPage() {
 
         {/* Footer CTA */}
         <div className="drawer-footer">
-          <a href="/login" className="drawer-cta" onClick={() => setMenu(false)}>
+          <a
+            href="/login"
+            className="drawer-cta"
+            onClick={() => setMenu(false)}
+          >
             Sign In <span style={{ fontSize: 15 }}>→</span>
           </a>
-          <div className="drawer-contact">
-            📍 GeoTreks Kenya · Nairobi
-          </div>
+          <div className="drawer-contact">📍 GeoTreks Kenya · Nairobi</div>
         </div>
       </div>
 
       {/* NAV */}
-      <header className={`n ${stuck ? 'stuck' : ''}`}>
+      <header className={`n ${stuck ? "stuck" : ""}`}>
         <a href="#home" className="n-logo" aria-label="GT Mapper">
           {/* <LogoMark /> */}
           <div>
@@ -881,33 +902,62 @@ export default function LandingPage() {
           </div>
         </a>
         <nav className="n-links">
-          {navLinks.map(nl => (
-            <a key={nl.l} href={nl.h} className={active === nl.h.slice(1) ? 'on' : ''}>{nl.l}</a>
+          {navLinks.map((nl) => (
+            <a
+              key={nl.l}
+              href={nl.h}
+              className={active === nl.h.slice(1) ? "on" : ""}
+            >
+              {nl.l}
+            </a>
           ))}
         </nav>
-        <a href="/login" className="n-cta">Sign In <span style={{ fontSize: 15 }}>→</span></a>
-        <button className={`ham ${menu ? 'x' : ''}`} onClick={() => setMenu(v => !v)} aria-label="Menu">
-          <span /><span /><span />
+        <a href="/login" className="n-cta">
+          Sign In <span style={{ fontSize: 15 }}>→</span>
+        </a>
+        <button
+          className={`ham ${menu ? "x" : ""}`}
+          onClick={() => setMenu((v) => !v)}
+          aria-label="Menu"
+        >
+          <span />
+          <span />
+          <span />
         </button>
       </header>
 
       {/* HERO */}
       <section id="home" className="hero">
-        <div className="hero-bg" /><div className="hero-grid" />
-        <div style={{ position: 'relative', zIndex: 1 }}>
-          <div className="eyebrow"><span className="eyebrow-dot" /> GIS · Field Operations · Africa</div>
-          <h1 className="h1">Map. Collect.<br /><em>Decide.</em></h1>
+        <div className="hero-bg" />
+        <div className="hero-grid" />
+        <div style={{ position: "relative", zIndex: 1 }}>
+          <div className="eyebrow">
+            <span className="eyebrow-dot" /> GIS · Field Operations · Africa
+          </div>
+          <h1 className="h1">
+            Map. Collect.
+            <br />
+            <em>Decide.</em>
+          </h1>
           <p className="hero-body">
             GT Mapper replaces paper and guesswork with real-time GPS tracking,
-            offline-capable smart forms, and spatial dashboards — built for teams
-            working across Africa's toughest terrain.
+            offline-capable smart forms, and spatial dashboards — built for
+            teams working across Africa's toughest terrain.
           </p>
           <div className="hero-actions">
-            <a href="/login" className="btn-lime">Get Started <span style={{ fontSize: 16 }}>→</span></a>
-            <a href="#services" className="btn-ghost">Explore platform</a>
+            <a href="/login" className="btn-lime">
+              Get Started <span style={{ fontSize: 16 }}>→</span>
+            </a>
+            <a href="#services" className="btn-ghost">
+              Explore platform
+            </a>
           </div>
           <div className="stats">
-            {[{ n:'3', l:'User roles' },{ n:'100%', l:'Offline capable' },{ n:'Live', l:'GPS tracking' }].map(s => (
+            {[
+              { n: "3", l: "User roles" },
+              { n: "100%", l: "Offline capable" },
+              { n: "Live", l: "GPS tracking" },
+            ].map((s) => (
               <div key={s.l} className="stat">
                 <div className="stat-n">{s.n}</div>
                 <div className="stat-l">{s.l}</div>
@@ -915,14 +965,19 @@ export default function LandingPage() {
             ))}
           </div>
         </div>
-        <div className="scroll-hint" aria-hidden>Scroll <div className="scroll-line" /></div>
+        <div className="scroll-hint" aria-hidden>
+          Scroll <div className="scroll-line" />
+        </div>
       </section>
 
       {/* MARQUEE */}
       <div className="mq-wrap" aria-hidden>
         <div className="mq">
-          {[...mq,...mq].map((t,i) => (
-            <span key={i} className="mq-item">{t}<span className="mq-sep" /></span>
+          {[...mq, ...mq].map((t, i) => (
+            <span key={i} className="mq-item">
+              {t}
+              <span className="mq-sep" />
+            </span>
           ))}
         </div>
       </div>
@@ -931,13 +986,15 @@ export default function LandingPage() {
       <div className="data-strip">
         <div className="data-strip-inner">
           {[
-            { target:'2400', suffix:'+', label:'Data submissions today' },
-            { target:'147',  suffix:'',  label:'Active field officers' },
-            { target:'38',   suffix:'',  label:'Organizations on platform' },
-            { target:'99',   suffix:'%', label:'Uptime this month' },
-          ].map(d => (
+            { target: "2400", suffix: "+", label: "Data submissions today" },
+            { target: "147", suffix: "", label: "Active field officers" },
+            { target: "38", suffix: "", label: "Organizations on platform" },
+            { target: "99", suffix: "%", label: "Uptime this month" },
+          ].map((d) => (
             <div key={d.label} className="ds-card rv">
-              <div className="ds-num"><Counter target={d.target} suffix={d.suffix} /></div>
+              <div className="ds-num">
+                <Counter target={d.target} suffix={d.suffix} />
+              </div>
               <div className="ds-label">{d.label}</div>
             </div>
           ))}
@@ -948,20 +1005,26 @@ export default function LandingPage() {
       <div className="map-section">
         <div className="map-inner">
           <div className="rv">
-            <div className="tag" style={{ color: 'var(--g300)' }}>Live View</div>
-            <h2 className="h2" style={{ color: '#fff' }}>Your whole team<br /><em>on one map.</em></h2>
-            <p className="body-text" style={{ color: 'rgba(255,255,255,.46)' }}>
-              Every GPS ping, every check-in, every route — visible in real time.
-              Watch officers move across zones, get alerts on deviations, and
-              review full trail history for any assignment.
+            <div className="tag" style={{ color: "var(--g300)" }}>
+              Live View
+            </div>
+            <h2 className="h2" style={{ color: "#fff" }}>
+              Your whole team
+              <br />
+              <em>on one map.</em>
+            </h2>
+            <p className="body-text" style={{ color: "rgba(255,255,255,.46)" }}>
+              Every GPS ping, every check-in, every route — visible in real
+              time. Watch officers move across zones, get alerts on deviations,
+              and review full trail history for any assignment.
             </p>
             <div className="map-stat-list">
               {[
-                { l: 'Officers online now',    v: '24 / 31' },
-                { l: 'Avg GPS accuracy',       v: '±3.2 m' },
-                { l: 'Submissions in 1h',      v: '187' },
-                { l: 'Active zones',           v: '12' },
-              ].map(r => (
+                { l: "Officers online now", v: "24 / 31" },
+                { l: "Avg GPS accuracy", v: "±3.2 m" },
+                { l: "Submissions in 1h", v: "187" },
+                { l: "Active zones", v: "12" },
+              ].map((r) => (
                 <div key={r.l} className="map-stat-row">
                   <span className="map-stat-row-label">{r.l}</span>
                   <span className="map-stat-row-val">{r.v}</span>
@@ -969,7 +1032,7 @@ export default function LandingPage() {
               ))}
             </div>
           </div>
-          <div className="rv" style={{ transitionDelay: '.15s' }}>
+          <div className="rv" style={{ transitionDelay: ".15s" }}>
             <LiveMap />
           </div>
         </div>
@@ -980,7 +1043,11 @@ export default function LandingPage() {
         <div className="charts-inner">
           <div className="rv">
             <div className="tag">Analytics</div>
-            <h2 className="h2">Data that speaks<br /><em>for itself.</em></h2>
+            <h2 className="h2">
+              Data that speaks
+              <br />
+              <em>for itself.</em>
+            </h2>
             <p className="body-text">
               Built-in dashboards turn raw field submissions into actionable
               spatial intelligence — no separate BI tool required.
@@ -988,61 +1055,128 @@ export default function LandingPage() {
           </div>
 
           <div className="charts-grid">
-
             {/* Monthly submissions bar chart */}
-            <div className="chart-card rv" style={{ transitionDelay: '.05s' }}>
+            <div className="chart-card rv" style={{ transitionDelay: ".05s" }}>
               <div className="chart-card-title">Monthly Submissions</div>
-              <div className="chart-card-sub">Field data collected per month · 2024</div>
+              <div className="chart-card-sub">
+                Field data collected per month · 2024
+              </div>
               <BarChart data={barData} />
             </div>
 
             {/* Form type donut */}
-            <div className="chart-card rv" style={{ transitionDelay: '.1s' }}>
+            <div className="chart-card rv" style={{ transitionDelay: ".1s" }}>
               <div className="chart-card-title">Submissions by Type</div>
-              <div className="chart-card-sub">Distribution across form categories</div>
+              <div className="chart-card-sub">
+                Distribution across form categories
+              </div>
               <DonutChart slices={donutSlices} />
             </div>
 
             {/* Activity heatmap — full width */}
-            <div className="chart-card full rv" style={{ transitionDelay: '.15s' }}>
-              <div className="chart-card-title">Submission Activity Heatmap</div>
-              <div className="chart-card-sub">Daily field activity intensity across the year</div>
+            <div
+              className="chart-card full rv"
+              style={{ transitionDelay: ".15s" }}
+            >
+              <div className="chart-card-title">
+                Submission Activity Heatmap
+              </div>
+              <div className="chart-card-sub">
+                Daily field activity intensity across the year
+              </div>
               <Heatmap />
             </div>
 
             {/* Officer growth line chart */}
-            <div className="chart-card dark rv" style={{ transitionDelay: '.2s' }}>
+            <div
+              className="chart-card dark rv"
+              style={{ transitionDelay: ".2s" }}
+            >
               <div className="chart-card-title">Officer Deployments</div>
               <div className="chart-card-sub">Active officers per month</div>
               <LineChart data={lineVals} label={lineMonths} color="#22c55e" />
             </div>
 
             {/* Coverage stats */}
-            <div className="chart-card rv" style={{ transitionDelay: '.25s', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div
+              className="chart-card rv"
+              style={{
+                transitionDelay: ".25s",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+              }}
+            >
               <div>
                 <div className="chart-card-title">Coverage Stats</div>
-                <div className="chart-card-sub">Platform performance snapshot</div>
+                <div className="chart-card-sub">
+                  Platform performance snapshot
+                </div>
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 14, marginTop: 10 }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 14,
+                  marginTop: 10,
+                }}
+              >
                 {[
-                  { label: 'GPS accuracy', pct: 96, color: '#22c55e' },
-                  { label: 'Offline sync success', pct: 99, color: '#16a34a' },
-                  { label: 'Form completion rate', pct: 87, color: '#15803d' },
-                  { label: 'Data upload speed', pct: 91, color: '#166534' },
-                ].map(stat => (
+                  { label: "GPS accuracy", pct: 96, color: "#22c55e" },
+                  { label: "Offline sync success", pct: 99, color: "#16a34a" },
+                  { label: "Form completion rate", pct: 87, color: "#15803d" },
+                  { label: "Data upload speed", pct: 91, color: "#166534" },
+                ].map((stat) => (
                   <div key={stat.label}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 5 }}>
-                      <span style={{ fontSize: 12, fontWeight: 600, color: 'rgba(10,15,13,.6)' }}>{stat.label}</span>
-                      <span style={{ fontSize: 12, fontFamily: 'var(--mono)', fontWeight: 600, color: stat.color }}>{stat.pct}%</span>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        marginBottom: 5,
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontSize: 12,
+                          fontWeight: 600,
+                          color: "rgba(10,15,13,.6)",
+                        }}
+                      >
+                        {stat.label}
+                      </span>
+                      <span
+                        style={{
+                          fontSize: 12,
+                          fontFamily: "var(--mono)",
+                          fontWeight: 600,
+                          color: stat.color,
+                        }}
+                      >
+                        {stat.pct}%
+                      </span>
                     </div>
-                    <div style={{ height: 6, background: 'rgba(10,35,24,.08)', borderRadius: 99, overflow: 'hidden' }}>
-                      <div style={{ height: '100%', width: `${stat.pct}%`, background: stat.color, borderRadius: 99, transition: 'width 1.2s cubic-bezier(.4,0,.2,1)' }} />
+                    <div
+                      style={{
+                        height: 6,
+                        background: "rgba(10,35,24,.08)",
+                        borderRadius: 99,
+                        overflow: "hidden",
+                      }}
+                    >
+                      <div
+                        style={{
+                          height: "100%",
+                          width: `${stat.pct}%`,
+                          background: stat.color,
+                          borderRadius: 99,
+                          transition: "width 1.2s cubic-bezier(.4,0,.2,1)",
+                        }}
+                      />
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -1052,11 +1186,19 @@ export default function LandingPage() {
         <div className="sec" style={{ paddingTop: 0 }}>
           <div className="rv">
             <div className="tag">Features</div>
-            <h2 className="h2">Everything your<br />team <em>needs.</em></h2>
+            <h2 className="h2">
+              Everything your
+              <br />
+              team <em>needs.</em>
+            </h2>
           </div>
           <div className="bento">
             {services.map((s, i) => (
-              <div key={s.title} className={`bcard rv ${s.feat ? 'feat' : ''}`} style={{ transitionDelay: `${i * .07}s` }}>
+              <div
+                key={s.title}
+                className={`bcard rv ${s.feat ? "feat" : ""}`}
+                style={{ transitionDelay: `${i * 0.07}s` }}
+              >
                 <div className="bcard-icon">{s.icon}</div>
                 <div className="bcard-title">{s.title}</div>
                 <div className="bcard-body">{s.body}</div>
@@ -1072,11 +1214,19 @@ export default function LandingPage() {
         <div className="how-inner">
           <div className="rv">
             <div className="tag">Process</div>
-            <h2 className="h2">From deploy to<br /><em>data.</em></h2>
+            <h2 className="h2">
+              From deploy to
+              <br />
+              <em>data.</em>
+            </h2>
           </div>
           <div className="steps">
             {steps.map((s, i) => (
-              <div key={s.n} className="step rv" style={{ transitionDelay: `${i * .1}s` }}>
+              <div
+                key={s.n}
+                className="step rv"
+                style={{ transitionDelay: `${i * 0.1}s` }}
+              >
                 <div className="step-n">{s.n}</div>
                 <div className="step-title">{s.title}</div>
                 <div className="step-body">{s.body}</div>
@@ -1087,7 +1237,7 @@ export default function LandingPage() {
       </div>
 
       {/* ROLES */}
-      <section id="roles">
+      {/* <section id="roles">
         <div className="sec">
           <div className="rv">
             <div className="tag">Roles</div>
@@ -1105,13 +1255,25 @@ export default function LandingPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA */}
       <div className="cta">
-        <h2 className="cta-h2 rv">Ready to map<br />your fieldwork?</h2>
-        <p className="cta-body rv" style={{ transitionDelay: '.1s' }}>Join field teams across Africa already using GT Mapper.</p>
-        <a href="/login" className="btn-dark rv" style={{ transitionDelay: '.2s' }}>Start using GT Mapper →</a>
+        <h2 className="cta-h2 rv">
+          Ready to map
+          <br />
+          your fieldwork?
+        </h2>
+        <p className="cta-body rv" style={{ transitionDelay: ".1s" }}>
+          Join field teams across Africa already using GT Mapper.
+        </p>
+        <a
+          href="/login"
+          className="btn-dark rv"
+          style={{ transitionDelay: ".2s" }}
+        >
+          Start using GT Mapper →
+        </a>
       </div>
 
       {/* FOOTER */}
@@ -1119,33 +1281,58 @@ export default function LandingPage() {
         <div className="footer-inner">
           <div className="footer-grid">
             <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
-                <div className="footer-mark">
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 10,
+                  marginBottom: 12,
+                }}
+              >
+                {/* <div className="footer-mark">
                   {(() => { const [err, setErr] = useState(false); return err ? <span className="footer-mark-fb">G</span> : <img src="/images/logo.jpeg" alt="" onError={() => setErr(true)} style={{ width: 34, height: 34, objectFit: 'contain' }} /> })()}
-                </div>
+                </div> */}
                 <span className="footer-brand">GT Mapper</span>
+                <div className="n-sub">GeoTreks Kenya</div>
               </div>
-              <p className="footer-tagline">Real-time field data collection and GIS platform for teams across Africa. Built by GeoTreks Kenya.</p>
+              <p className="footer-tagline">
+                Real-time field data collection and GIS platform for teams
+                across Africa. Built by GeoTreks Kenya.
+              </p>
             </div>
             <div>
               <div className="footer-col-title">Platform</div>
-              <div className="footer-links">{['Features','How it Works','Roles','Sign In'].map(l => <a key={l} href="#">{l}</a>)}</div>
+              <div className="footer-links">
+                {["Features", "How it Works", "Sign In"].map((l) => (
+                  <a key={l} href="#">
+                    {l}
+                  </a>
+                ))}
+              </div>
             </div>
             <div>
               <div className="footer-col-title">Contact</div>
               <div className="footer-links">
                 <a href="mailto:info@geotreks.co.ke">info@geotreks.co.ke</a>
-                <a href="#">GeoTreks Kenya</a>
-                <a href="#">Nairobi, Kenya</a>
+                <a
+                  href="https://geotreks.co.ke"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GeoTreks Kenya
+                </a>
+                <a>Nairobi, Kenya</a>
               </div>
             </div>
           </div>
           <div className="footer-bottom">
-            <span className="footer-copy">© {new Date().getFullYear()} GeoTreks Kenya · All rights reserved</span>
-            <span className="footer-ver">GT Mapper v3.0</span>
+            <span className="footer-copy">
+              © {new Date().getFullYear()} GeoTreks Kenya · All rights reserved
+            </span>
+            <span className="footer-ver">GT Mapper</span>
           </div>
         </div>
       </footer>
     </>
-  )
+  );
 }

@@ -53,7 +53,7 @@ import MySubmissionsPage  from "./pages/officer/MySubmissionsPage";
 import LoginPage             from "./pages/LoginPage";
 import LoadingScreen         from "./components/LoadingScreen";
 import PendingApprovalScreen from "./components/PendingApprovalScreen";
-
+import LandingPage           from "./pages/landingPage";
 /* ─────────────────────────────────────────────────────────
    NAVIGATION WRAPPER
    - Shows NavLoader (overlay) on every route change
@@ -94,7 +94,8 @@ function AppRoutes() {
   if (!user) {
     return (
       <Routes>
-        <Route path="*" element={<LoginPage />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
     );
   }
